@@ -10,7 +10,7 @@ import static java.lang.System.out;
 public class BiddingTripCancle {
 
     static String jwt = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjE4MiwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoibW9oYWltaW51bCBJc2xhbSIsInBob25lIjoiIiwidGVhbSI6Im5vbmUiLCJyZWZyZXNoS2V5Ijoia3ZpazdTcWcxZ3VwUWpSOEVwU3BIZz09IiwiaWF0IjoxNjU0NDkwODI5fQ.fDLrSnfBLBdXTQURJj93XWpF5Ka_YMvE4A3viPwNNLU";
-
+    String request_id;
     @Test
     public void shipperInfo(){
 
@@ -93,7 +93,7 @@ public class BiddingTripCancle {
                 .statusCode(200)
                 .extract().response().body().jsonPath().getString("requestId");
 
-        out.println("New Created Trip id: " + requestId);
+
 
     }
     @Test
@@ -156,7 +156,7 @@ public class BiddingTripCancle {
 
     }
     @Test
-    public String verifyTripStatus(){
+    public void verifyTripStatus(){
 
         JSONObject payload = new JSONObject();
         payload.put("requestID","1036193");
@@ -171,25 +171,11 @@ public class BiddingTripCancle {
                 .then()
                 .statusCode(200)
                 .extract().response().body().jsonPath().getString("TripRequest.status");
-
-        out.println("Trip status: " + status);
-        return status;
     }
 
-    @Test
-    public void untagActiveTrip(){
-        String tripStatus = verifyTripStatus();
-//        JSONObject payload = new JSONObject();
-//        payload.put("requestId", "1036193");
-//        payload.put("cancelByWhom", "tlTeam");
-//        payload.put("cancellationReasonId", 89);
-//        payload.put("cancellationReason", "Shortage of Supply ");
-//        payload.put("bidId", 6184917);
-//        payload.put("shipperId", 164623);
-//        payload.put("ownerId", 310549);
-//        payload.put("isProjectTrip", 0);
-        System.out.println(tripStatus);
-    }
+
+
+
 
 
 }
