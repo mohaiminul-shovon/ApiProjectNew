@@ -3,11 +3,11 @@ package Base;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.response.ResponseBody;
+//import io.restassured.response.ResponseBody;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
-import static java.lang.Integer.parseInt;
+//import static java.lang.Integer.parseInt;
 
 
 public class LoginWithPhoneNo {
